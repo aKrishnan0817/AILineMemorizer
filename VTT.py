@@ -40,6 +40,7 @@ def speech_to_text():
         except sr.RequestError as e:
             print(f"Error connecting to Google API: {e}")
             break
+    os.remove("audio_file.wav")
 
 
 
