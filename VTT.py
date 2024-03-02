@@ -16,9 +16,9 @@ def speech_to_text():
     recognizer = sr.Recognizer()
 
     with sr.Microphone() as source:
-        print("Say something...")
+        #print("Say something...")
         recognizer.adjust_for_ambient_noise(source)
-        audio = recognizer.listen(source, timeout=4)
+        audio = recognizer.listen(source, timeout=10)
 
     with open("audio_file.wav", "wb") as file:
         file.write(audio.get_wav_data())
