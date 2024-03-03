@@ -31,7 +31,7 @@ if __name__ == "__main__":
     for line in dialogue:
         if line[0] != character:
             print(line[1])
-            ttsElevenLabs(line[1])
+            ttsPlay(line[1])
 
 
         elif line[0] == character:

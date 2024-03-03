@@ -18,7 +18,7 @@ def speech_to_text():
     with sr.Microphone() as source:
         #print("Say something...")
         recognizer.adjust_for_ambient_noise(source)
-        audio = recognizer.listen(source, timeout=10)
+        audio = recognizer.listen(source, timeout=6)
 
     with open("audio_file.wav", "wb") as file:
         file.write(audio.get_wav_data())
@@ -34,13 +34,15 @@ def speech_to_text():
             )
             text=transcription.text
             print("You said:", text)
+            os.remove("audio_file.wav")
             return text
         except sr.UnknownValueError:
             print("Could not understand audio. Try Again")
+            os.remove("audio_file.wav")
         except sr.RequestError as e:
             print(f"Error connecting to Google API: {e}")
+            os.remove("audio_file.wav")
             break
-    os.remove("audio_file.wav")
 
 
 

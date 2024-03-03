@@ -26,7 +26,7 @@ def ttsPlay(text):
 
     response = client.audio.speech.create(
         model="tts-1",
-        voice="shimmer",
+        voice="alloy",
         input=text,
     )
     response.stream_to_file("output.mp3")
